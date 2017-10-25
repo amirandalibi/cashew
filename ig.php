@@ -1,13 +1,14 @@
 <?php
 
-namespace EI\Cashew;
+namespace Accolade\Cashew;
 require_once('cache.php');
 
-class APICall extends Cache {
+class InstagramOAuth extends Cache {
 
-	
-	function InstagramOAuth($label, $userid, $accessToken, $count = 20){
-			return $this->get_the_json($label, 'https://api.instagram.com/v1/users/'.$userid.'/media/recent/?access_token='.$accessToken.'&count='.$count.'');
+	public function __construct($label, $userid, $accessToken){
+			return $this->get_the_json($label, 'https://api.instagram.com/v1/users/'.$userid.'/media/recent/?access_token='.$accessToken.'&count=20');
 	}
+	
+
 
 }

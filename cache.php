@@ -1,27 +1,23 @@
 <?php
 
-namespace EI\Cashew;
+namespace Accolade\Cashew;
 
 class Cache {
 
 	public $cache_folder = '_cache/'; // cache store folder
 	public $cache_time = 1 * 60 * 60; // in hour
 
-	
-	function __construct($label, $url) {		
+
+	public function get_the_json($label, $url) {		
 		if($data = $this->get_cache($label)){
 			$data = json_decode($data);
-			echo 'reading from cache';
 		} else {
-			echo 'loading a new url';
 			$data = $this->fetch_data($url);
 			$this->set_cache($label, $data);
 			$data = json_decode($data);
 		}
 
-		echo '<pre>';
-		print_r($data);
-		echo '</pre>';
+		return $data;
 	}
 
 
