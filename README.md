@@ -36,7 +36,7 @@ Every new app created on the Instagram Platform starts in Sandbox mode. and they
 ```php
 use Accolade\Cashew\InstagramOAuth;
 
-$instagram = new Instagram(
+$instagram = new InstagramOAuth(
 	$LabelforCashedFilename,
 	$InstagramUserID,
 	$AccessToken
