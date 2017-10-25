@@ -42,6 +42,7 @@ $instagram = new Instagram(
 	$AccessToken
 );
 
+print_r($instagram->get_feed());
 ```
 
 This will return the API data `json_decode()` - so you can directly access the data.
