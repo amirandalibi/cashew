@@ -13,9 +13,9 @@ This is a simple script for making API calls to `/users/user-id/media/recent` En
 
 ### Do I need this?
 
-If you are trying to get the data from a public username, you might be able to only use Instagram web interface by adding `/media` at the end of the profile's URL.
+If you are trying to get the data from a public username, you might be able to only use Instagram web interface by adding `/?__a=1` at the end of the profile's URL. (at present time of writing)
 
-i.e: [https://www.instagram.com/amirandalibi/media](https://www.instagram.com/amirandalibi/media)
+i.e: [https://www.instagram.com/amirandalibi/?__a=1](https://www.instagram.com/amirandalibi/?__a=1)
 
 But if you are trying to get access to a private user info, You will need this.
 
@@ -36,13 +36,13 @@ Every new app created on the Instagram Platform starts in Sandbox mode. and they
 ```php
 use Accolade\Cashew\InstagramOAuth;
 
-$instagram = new InstagramOAuth(
-	$LabelforCashedFilename,
-	$InstagramUserID,
-	$AccessToken
+$instagram = new InstagramOAuth;
+$instagram->get_feed(
+  $LabelforCashedFilename,
+  $InstagramUserID,
+  $AccessToken
 );
 
-print_r($instagram->get_feed());
 ```
 
 This will return the API data `json_decode()` - so you can directly access the data.
